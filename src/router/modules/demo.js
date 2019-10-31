@@ -15,20 +15,20 @@ const demoRouter = {
     {
       path: 'demo-chart',
       component: () => import('@/views/myLayout/mychart/base_chart'),
-      name: 'chartDemo',
+      name: 'ChartDemo',
       meta:
           {
-            title: 'chart Demo',
+            title: '账户管理',
             icon: 'chart'
           }
     },
     {
       path: 'demo-table',
-      component: () => import('@/views/myLayout/table'),
+      component: () => import('@/views/myLayout/role'),
       name: 'TableDemo',
       meta:
         {
-          title: 'table Demo',
+          title: '角色管理',
           icon: 'table'
         }
     },
@@ -38,7 +38,7 @@ const demoRouter = {
       name: 'TableBase',
       meta:
         {
-          title: 'Base Table',
+          title: '权限管理',
           icon: 'table'
         }
     },
@@ -48,7 +48,7 @@ const demoRouter = {
       name: 'TableNew',
       meta:
         {
-          title: 'New Table',
+          title: '日志管理',
           icon: 'table'
         }
     }

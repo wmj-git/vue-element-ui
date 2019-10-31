@@ -1,8 +1,11 @@
 <template>
   <div class="app-container">
-    <el-button class="filter-item" style="margin-left: 10px;" type="primary" size="mini" icon="el-icon-plus" @click="handleCreate">
-      添加
-    </el-button>
+    <div class="table-operate">
+      <el-input v-model="inputFilter" placeholder="输入用户名查询" />
+      <el-button class="filter-item" style="margin-left: 10px;" type="primary" size="mini" icon="el-icon-plus" @click="handleCreate">
+        添加
+      </el-button>
+    </div>
     <el-table
       :data="tableData"
       style="width: 100%"
@@ -69,7 +72,7 @@
 export default {
   data() {
     return {
-      tableData: [{
+      tableDataBegin: [{
         name: '王小',
         address: '上海市普陀区金沙',
         age: 25
@@ -120,10 +123,22 @@ export default {
         '重庆', '上海', '云南', '江苏'
       ],
       checkedRows: [],
-      multipleSelection: []
+      multipleSelection: [],
+      inputFilter: ''
     }
   },
-  init() {
+  computed: {
+    tableData() {
+      const inputFilter = this.inputFilter
+      if (inputFilter) {
+        return this.tableDataBegin.filter(data => {
+          return Object.keys(data).some(key => {
+            return String(data[key]).toLowerCase().indexOf(inputFilter) > -1
+          })
+        })
+      }
+      return this.tableDataBegin
+    }
   },
   methods: {
     resetTemp() {
@@ -190,3 +205,12 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+  .app-container {
+    & .table-operate {
+      .el-input {
+        width: 30%;
+      }
+    }
+  }
+</style>
