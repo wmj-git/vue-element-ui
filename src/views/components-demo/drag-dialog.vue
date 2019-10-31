@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import elDragDialog from '@/directive/el-drag-dialog' // base on element-ui
+import elDragDialog from '@/directive/el-drag-kk' // base on element-ui
 
 export default {
   name: 'DragDialogDemo',
@@ -52,7 +52,7 @@ export default {
     }
   },
   methods: {
-    // v-el-drag-dialog onDrag callback function
+    // v-el-drag-kk onDrag callback function
     handleDrag() {
       this.$refs.select.blur()
     }

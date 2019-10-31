@@ -45,7 +45,7 @@ export default {
       cursor: pointer;
     }
     .icon {
-      color: #fff;
+      color: rgb(255, 255, 255);
       font-size: 24px;
       margin-top: 8px;
     }
